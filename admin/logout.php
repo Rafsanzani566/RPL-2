@@ -18,3 +18,5 @@ session_destroy();
 
 // Arahkan balik ke halaman login (keluar satu folder dulu)
 header("Location: ../login.php");
+
+?>

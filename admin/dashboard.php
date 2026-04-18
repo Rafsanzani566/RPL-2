@@ -6,6 +6,9 @@ if (!isset($_SESSION['admin_id'])) {
 }
 require_once __DIR__ . '/../config/database.php';
 
+//Variabel
+$kelas = "XI";
+
 // Ambil statistik ringkas
 $totalSiswa = $pdo->query("SELECT COUNT(*) FROM siswa")->fetchColumn();
 $totalGaleri = $pdo->query("SELECT COUNT(*) FROM galeri")->fetchColumn();
@@ -147,10 +150,13 @@ $totalAdmin = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
     <div class="row">
         <nav class="col-md-2 d-none d-md-block sidebar vh-100 p-4 fixed-top">
             <div class="d-flex align-items-center mb-5">
-                <div class="bg-warning rounded-circle p-2 me-2">
-                    <i class="fas fa-code text-dark"></i>
+                <div class="me-2"> 
+                    <img src="img/foto-class.png" 
+                    alt="Logo XI RPL 2" 
+                    class="rounded-circle shadow-sm" 
+                    style="width: 65px; height: 65px; object-fit: cover; border: 2px solid #fccf07;">
                 </div>
-                <h5 class="text-warning fw-bold m-0" style="letter-spacing: 1px;">X-RPL 2</h5>
+                <h5 class="fw-bold m-0" style="letter-spacing: 1px;"><?= $kelas ?>-RPL<span class="text-warning"> 2</span></h5>
             </div>
             
             <ul class="nav flex-column">
@@ -158,7 +164,7 @@ $totalAdmin = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
                     <a class="nav-link active" href="#"><i class="fas fa-th-large"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user-graduate"></i> Data Siswa</a>
+                    <a class="nav-link" href="index.php"><i class="fas fa-user-graduate"></i> Data Siswa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-camera-retro"></i> Galeri</a>
@@ -178,7 +184,7 @@ $totalAdmin = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
             <div class="welcome-banner animate-up">
                 <span class="badge bg-warning text-dark mb-2">Verified Admin</span>
                 <h1 class="fw-bold">Hi, <?= htmlspecialchars($_SESSION['admin_name']) ?>! 👋</h1>
-                <p class="m-0" style="color: #e0e0e0;">Inilah statistik portal kelas kamu hari ini.</p>
+                <p class="m-0" style="color: #e0e0e0;">Inilah statistik kelas untuk memantau progres belajar dan produktivitas kita bersama.</p>
             </div>
 
             <div class="row">
@@ -207,7 +213,7 @@ $totalAdmin = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
                         <div class="icon-box">
                             <i class="fas fa-shield-alt fa-lg"></i>
                         </div>
-                        <p class="small text-uppercase fw-bold mb-1" style="color: #e0e0e0;">Administrator</p>
+                        <p class="small text-uppercase fw-bold mb-1" style="color: #e0e0e0;">Admin Online</p>
                         <h2 class="display-number m-0"><?= number_format($totalAdmin) ?></h2>
                     </div>
                 </div>
@@ -216,7 +222,7 @@ $totalAdmin = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
             <div class="alert glass-alert mt-4 d-flex align-items-center animate-up" style="animation-delay: 0.4s;">
                 <i class="fas fa-server me-3"></i>
                 <div>
-                    <strong>System Status:</strong> Terhubung ke database <code>webdb_rpl2</code> | SMKN 1 Majalengka
+                    <strong>System Status:</strong> Terhubung ke database  <code> webdb_rpl2</code> | SMKN 1 Majalengka
                 </div>
             </div>
 

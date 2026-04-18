@@ -1314,3 +1314,158 @@ table.dataTable tbody td { padding: 1rem 1.25rem !important; color: var(--text-p
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px); /* Agak lebih rendah dikit biar kerasa naiknya */
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Efek smooth */
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+:root {
+    --bg-root: #0a0a0a;
+    --bg-card: #111;
+    --bg-input: #1a1a1a;
+
+    --accent: #FFD700;
+    --accent-dim: #e6c200;
+    --accent-glow: rgba(255,215,0,0.4);
+
+    --text: #ffffff;
+    --text-muted: #aaa;
+}
+
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg-root);
+    color: var(--text);
+}
+
+/* ===== LAYOUT ===== */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.admin-sidebar {
+    width: 240px;
+    background: #000;
+    border-right: 1px solid rgba(255,215,0,0.1);
+    padding: 20px;
+}
+
+.sidebar-logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.sidebar-link:hover {
+    background: rgba(255,215,0,0.1);
+    color: var(--accent);
+}
+
+/* ===== MAIN ===== */
+.admin-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* ===== TITLE ===== */
+.admin-title {
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+/* ===== CARD ===== */
+.admin-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,215,0,0.1);
+    border-top: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== BUTTON ===== */
+.btn-gold {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: var(--accent-dim);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ===== TABLE ===== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-table tr:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+/* ===== FORM ===== */
+.admin-input {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-input);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.admin-input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* ===== IMAGE ===== */
+img {
+    border-radius: 6px;
+}
