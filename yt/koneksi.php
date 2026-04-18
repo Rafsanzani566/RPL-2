@@ -2,7 +2,7 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db   = "webdb-rpl2";
+    $db   = "webdb_rpl2";
 
     $connect = mysqli_connect($host, $user, $pass, $db);
 
